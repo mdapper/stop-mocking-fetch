@@ -3,6 +3,9 @@
 // expect(element).toHaveTextContent(/react/i)
 // learn more: https://github.com/testing-library/jest-dom
 import '@testing-library/jest-dom/extend-expect';
-import { enableFetchMocks } from 'jest-fetch-mock';
+import { server } from './tests/server';
 
-enableFetchMocks();
+// enable API mocking in test runs
+beforeAll(() => server.listen());
+afterAll(() => server.close());
+afterEach(() => server.resetHandlers());
