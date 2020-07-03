@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 import FilmsPage from 'pages/FilmsPage';
 import HomePage from 'pages/HomePage';
+import PeoplePage from 'pages/PeoplePage';
 
 function App() {
   return (
@@ -11,8 +12,11 @@ function App() {
         <Route exact path="/">
           <HomePage />
         </Route>
-        <Route path="/films/:filmId">
+        <Route path="/films/:id">
           <FilmsPage />
+        </Route>
+        <Route path="/people/:id">
+          <PeoplePage />
         </Route>
       </Switch>
     </Router>
