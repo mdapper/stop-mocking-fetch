@@ -1,0 +1,79 @@
+/*
+ *  * --------------- Global ---------------
+ *   */
+
+html {
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  /* Inherit box-sizing to make it easier to change the property for
+         * components that leverage other behavior; see
+         * http://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/
+         * */
+  box-sizing: inherit;
+}
+
+body {
+  background: #282c34;
+  color: #fff;
+}
+
+img {
+  height: auto;
+  max-width: 100%;
+  display: block;
+}
+
+svg {
+  display: inline-block;
+}
+
+p {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+}
+
+ul {
+  list-style: none;
+}
+
+li {
+  list-style: none;
+}
+
+ol {
+  list-style: decimal;
+}
+
+section {
+  outline-width: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  padding: 0;
+}
+
+hr {
+  margin-bottom: 0;
+}
+
+a {
+  display: block;
+  text-decoration: none;
+}
