@@ -4,6 +4,7 @@ import { useParams, Link } from 'react-router-dom';
 
 import { getFilm } from 'api/films';
 import { data } from 'data';
+import CharacterCard from 'components/CharacterCard';
 
 export default function FilmsPage() {
   const [film, setFilm] = useState(undefined);
@@ -11,13 +12,13 @@ export default function FilmsPage() {
 
   useEffect(() => {
     const fetchData = async () => {
-      const result = await getFilm(params.filmId);
+      const result = await getFilm(params.id);
 
       setFilm(result);
     };
 
     fetchData();
-  }, [params.filmId]);
+  }, [params.id]);
 
   return (
     <Container>
@@ -26,16 +27,19 @@ export default function FilmsPage() {
       {film ? (
         <div>
           <Title>{film.title}</Title>
-          <img src={data.films[params.filmId]?.img} alt={film.title} />
+          <img src={data.films[params.id]?.img} alt={film.title} />
           <SubTitle>Info:</SubTitle>
           <Info>Episode: {film.episode_id}</Info>
           <Info>Director: {film.director}</Info>
           <Info>Producer: {film.producer}</Info>
-          <SubTitle>Cast:</SubTitle>
-          {film.characters.length > 0 &&
-            film.characters.map((character) => (
-              <div key={character}>{character}</div>
-            ))}
+          <SubTitle>Characters:</SubTitle>
+
+          <Characters>
+            {film.characters.length > 0 &&
+              film.characters.map((character) => (
+                <CharacterCard key={character} id={character.match(/\d+/g)} />
+              ))}
+          </Characters>
         </div>
       ) : (
         <div>Loading...</div>
@@ -50,7 +54,7 @@ const Container = styled.div`
   flex-wrap: wrap;
   padding: 48px;
 
-  a {
+  & > a {
     margin-bottom: 24px;
     color: #6c63ff;
     padding: 8px 0;
@@ -74,4 +78,10 @@ const SubTitle = styled.h2`
 
 const Info = styled.div`
   padding: 4px 0;
+`;
+
+const Characters = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 -16px;
 `;
