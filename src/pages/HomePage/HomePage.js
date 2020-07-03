@@ -7,11 +7,16 @@ import FilmsCard from 'components/FilmsCard';
 
 export default function HomePage() {
   const [films, setFilms] = useState({ results: [] });
+  const [error, setError] = useState(false);
+
   useEffect(() => {
     const fetchData = async () => {
       const result = await getFilms();
 
-      setFilms(result);
+      if (result.status === 404) {
+        return setError(true);
+      }
+      return setFilms(result);
     };
 
     fetchData();
@@ -19,7 +24,9 @@ export default function HomePage() {
 
   return (
     <Container>
-      {films?.results.length > 0 ? (
+      {error ? (
+        <div>Error</div>
+      ) : films?.results?.length > 0 ? (
         films.results.map((film, index) => {
           const id = index + 1;
           return (
