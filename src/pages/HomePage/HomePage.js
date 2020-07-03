@@ -20,15 +20,13 @@ export default function HomePage() {
   return (
     <Container>
       {films?.results.length > 0 ? (
-        films.results.map((film) => {
-          const filmId = film.url
-            .replace('http://swapi.dev/api/films/', '')
-            .replace('/', '');
+        films.results.map((film, index) => {
+          const id = index + 1;
           return (
             <FilmsCard
-              key={filmId}
-              id={filmId}
-              img={data.films[filmId]?.img}
+              key={id}
+              id={id}
+              img={data.films[id]?.img}
               title={film.title}
             />
           );
