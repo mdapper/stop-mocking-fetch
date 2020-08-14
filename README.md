@@ -1,3 +1,22 @@
+# Como parar de fazer o mock da fetch API
+
+Esse repositório foi usando para a talk `Como parar de fazer o mock da fetch API`.
+
+Nessa talk vemos como refatorar os testes de uma aplicação React que usam `jest-fetch-mock` para usarem `msw` (Mock Service Worker). Também consideramos quais são algumas vantagens e desvantagens dessa abordagem.
+
+Seguem alguns links úteis:
+
+- [Slides](https://slides.com/marcelodapper/como-parar-fazer-mock-fetch-api)
+- [Gravação no YouTube](https://www.youtube.com/watch?v=jY1d0rQ31ss)
+- [MSW](https://mswjs.io/)
+- [Stop mocking fetch](https://kentcdodds.com/blog/stop-mocking-fetch)
+- [Colocation](https://kentcdodds.com/blog/colocation)
+- [Modern React testing, part 4: Cypress and Cypress Testing Library](https://blog.sapegin.me/all/react-testing-4-cypress/)
+
+O que segue é o boilerplate do create react app.
+
+## CRA
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
