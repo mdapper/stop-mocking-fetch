@@ -5,6 +5,11 @@
 import '@testing-library/jest-dom/extend-expect';
 import { server } from './tests/server';
 
+// https://github.com/testing-library/dom-testing-library/releases/tag/v7.0.0
+// See BREAKING CHANGES - Option 3
+import MutationObserver from '@sheerun/mutationobserver-shim';
+window.MutationObserver = MutationObserver;
+
 // enable API mocking in test runs
 beforeAll(() => server.listen());
 afterAll(() => server.close());
